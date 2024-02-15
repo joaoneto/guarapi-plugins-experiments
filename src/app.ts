@@ -1,7 +1,33 @@
 import guarapi, { Middleware, MiddlewareError, Router } from 'guarapi';
+import fs from 'node:fs';
+import path from 'node:path';
 import initPlugins from './plugins';
 
-const app = guarapi();
+const certs = {
+  key: fs.readFileSync(path.resolve('./cert/key.pem')),
+  cert: fs.readFileSync(path.resolve('./cert/cert.pem')),
+};
+// server http2 without TLS, will fail in most cases
+
+// without TLS (not working inn most cases):
+// curl --http2-prior-knowledge  'http://127.0.0.1:3000/' -v
+
+// with TLS:
+// curl 'https://127.0.0.1:3000/' -v -k
+
+// we recommend take e look at:
+// https://nodejs.org/api/http2.html#compatibility-api
+// https://nodejs.org/api/http2.html#alpn-negotiation
+
+const app = guarapi({
+  serverOptions: {
+    isSSL: true,
+    isHTTP2: true,
+    allowHTTP1: true,
+    ...certs,
+  },
+});
+
 const router = Router();
 
 type GuarapiACLRole = string | number;

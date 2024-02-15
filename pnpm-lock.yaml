@@ -10,7 +10,7 @@ dependencies:
     version: 16.4.1
   guarapi:
     specifier: ^1.1.1
-    version: 1.1.1
+    version: link:../guarapi/packages/guarapi
   jsonwebtoken:
     specifier: ^9.0.2
     version: 9.0.2
@@ -1806,10 +1806,6 @@ packages:
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
-
-  /guarapi@1.1.1:
-    resolution: {integrity: sha512-krmVZ1rR3GGonY3A+oPBl97A4wowSPF+ZDbDzzan+dgONrIFhwOF+ff+qLLMStCOM/ebre7PvA2fuvAK2swzCw==}
-    dev: false
 
   /has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
